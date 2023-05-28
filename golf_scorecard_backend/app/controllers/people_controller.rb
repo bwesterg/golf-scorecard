@@ -1,18 +1,18 @@
 class PeopleController < ApplicationController
 
     def index
-        @person = Person.all
+        @people = Person.all
         render json: @people
     end
 
 
-    private
+    # private
 
-    def find_person
-        @person = Person.find(params[:id])
-    end 
+    # def find_person
+    #     @person = Person.find(params[:id])
+    # end 
 
-    def person_params 
-        params.require(:person).permit(:name)
-    end
+    # def person_params 
+    #     params.require(:person).permit(:name)
+    # end
 end
