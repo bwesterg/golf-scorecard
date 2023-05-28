@@ -10,22 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_28_013311) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_28_044921) do
   create_table "courses", force: :cascade do |t|
     t.string "course_name"
-    t.integer "holes_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["holes_id"], name: "index_courses_on_holes_id"
-  end
-
-  create_table "games", force: :cascade do |t|
-    t.integer "people_id", null: false
-    t.integer "course_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["course_id"], name: "index_games_on_course_id"
-    t.index ["people_id"], name: "index_games_on_people_id"
   end
 
   create_table "holes", force: :cascade do |t|
@@ -35,7 +24,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_28_013311) do
     t.integer "hole_par"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "course_id"
+    t.integer "course_id", null: false
     t.index ["course_id"], name: "index_holes_on_course_id"
   end
 
@@ -45,8 +34,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_28_013311) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "courses", "holes", column: "holes_id"
-  add_foreign_key "games", "courses"
-  add_foreign_key "games", "people", column: "people_id"
   add_foreign_key "holes", "courses"
 end
