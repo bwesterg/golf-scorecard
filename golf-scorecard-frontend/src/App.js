@@ -1,25 +1,34 @@
-import logo from './logo.svg';
+import React, {Component} from 'react';
 import './App.css';
+import ScorecardContainer from './components/ScorecardContainer';
+const scorecardsUrl = "http://localhost:3000/scorecards"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+
+  state = {
+    scorecards: []
+  }
+
+  componentDidMount(){
+    this.getScorecards();
+  }
+
+  getScorecards = () => {
+    fetch(scorecardsUrl)
+      .then(response => response.json())
+      .then(console.log(scorecardsUrl))
+      .then(scorecards => this.setState({scorecards}))
+  }
+
+  render(){
+
+    return (
+      <div className="App">
+        <h1>Golf Score App</h1>
+        <ScorecardContainer scorecards={this.state.scorecards} />
+      </div>
+    );
+  }
 }
 
 export default App;
