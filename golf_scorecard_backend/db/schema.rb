@@ -10,29 +10,54 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_28_044921) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_28_233533) do
   create_table "courses", force: :cascade do |t|
-    t.string "course_name"
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "yardage"
+  end
+
+  create_table "players", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "holes", force: :cascade do |t|
-    t.string "hole_name"
-    t.integer "hole_number"
-    t.integer "hole_distance"
-    t.integer "hole_par"
+  create_table "scorecards", force: :cascade do |t|
+    t.string "player_name"
+    t.integer "hole_1"
+    t.integer "hole_2"
+    t.integer "hole_3"
+    t.integer "hole_4"
+    t.integer "hole_5"
+    t.integer "hole_6"
+    t.integer "hole_7"
+    t.integer "hole_8"
+    t.integer "hole_9"
+    t.integer "hole_10"
+    t.integer "hole_11"
+    t.integer "hole_12"
+    t.integer "hole_13"
+    t.integer "hole_14"
+    t.integer "hole_15"
+    t.integer "hole_16"
+    t.integer "hole_17"
+    t.integer "hole_18"
+    t.integer "course_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "course_id", null: false
-    t.index ["course_id"], name: "index_holes_on_course_id"
+    t.integer "tee_id", default: 1
+    t.index ["tee_id"], name: "index_scorecards_on_tee_id"
   end
 
-  create_table "people", force: :cascade do |t|
-    t.string "person_name"
+  create_table "tees", force: :cascade do |t|
+    t.string "name"
+    t.integer "yardage"
+    t.integer "course_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "holes", "courses"
+  add_foreign_key "scorecards", "tees"
 end
