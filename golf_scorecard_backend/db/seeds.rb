@@ -22,7 +22,7 @@ player2 = Player.create(name: 'Jane Smith')
 player3 = Player.create(name: 'Michael Johnson')
 
 # Create Scorecards
-scorecard1 = Scorecard.create(player_name: player1.name, hole_1: 4, hole_2: 3, hole_3: 5, hole_4: 4, hole_5: 5, hole_6: 3, hole_7: 4, hole_8: 4, hole_9: 5, hole_10: 4, hole_11: 3, hole_12: 5, hole_13: 4, hole_14: 4, hole_15: 5, hole_16: 4, hole_17: 3, hole_18: 5, course: course1, tee: tee1)
+scorecard1 = Scorecard.create(player_name: player1.name, hole_1: 4, hole_2: 3, hole_3: 5, hole_4: 4, hole_5: 5, hole_6: 3, hole_7: 4, hole_8: 4, hole_9: 5, hole_10: 4, hole_11: 3, hole_12: 5, hole_13: 4, hole_14: 4, hole_15: 5, hole_16: 4, hole_17: 3, hole_18: 5, course: course1, tee: tee1, player2)
 
 scorecard2 = Scorecard.create(player_name: player2.name, hole_1: 5, hole_2: 4, hole_3: 6, hole_4: 4, hole_5: 6, hole_6: 4, hole_7: 5, hole_8: 5, hole_9: 6, hole_10: 5, hole_11: 4, hole_12: 6, hole_13: 5, hole_14: 5, hole_15: 6, hole_16: 5, hole_17: 4, hole_18: 6, course: course1, tee: tee2)
 
